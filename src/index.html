@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>/ | kylelee.dev</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <main class="container mx-auto">
+      <h1>home</h1>
+      <ul>
+        <li>
+          <a href="./index.html">/</a>
+        </li>
+        <li>
+          <a href="./blog/index.html">blog</a>
+        </li>
+        <li>
+          <a href="./about/index.html">about</a>
+        </li>
+      </ul>
+
+      <div class="text-center">
+        <h1 class="text-4xl font-bold mb-4">Page Load Time</h1>
+        <p class="text-xl text-gray-700">
+          This page loaded in
+          <span id="load-time" class="font-semibold text-blue-500"></span>
+          seconds.
+        </p>
+      </div>
+    </main>
+    <script>
+      // Get the current timestamp before the DOM starts loading
+      const startTime = window.performance.now();
+
+      // Wait for the DOM to be fully loaded
+      window.addEventListener("load", () => {
+        // Get the current timestamp after the DOM is fully loaded
+        const endTime = window.performance.now();
+
+        // Calculate the time it took to load the DOM
+        const loadTime = endTime - startTime;
+        document.getElementById("load-time").textContent =
+          loadTime.toFixed(2) / 1000;
+      });
+    </script>
+  </body>
+</html>
